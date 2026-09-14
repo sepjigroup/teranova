@@ -1,0 +1,14 @@
+# Sumber dan hasil ekstraksi sementara
+extracted_temp/
+assets/{img,video}/
+*.pdf
+
+# Utilitas lokal ekstraksi
+extract_images.js
+check_sizes.js
+
+# File sistem/editor
+.DS_Store
+Thumbs.db
+.vscode/
+

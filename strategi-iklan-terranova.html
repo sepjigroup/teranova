@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Proposal Strategi Digital Marketing – Terranova Residence</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+/* ======================================================
+   PROPOSAL-SPECIFIC STYLES
+   Extends style.css — tidak menimpa, hanya menambah
+====================================================== */
+
+/* ── PROPOSAL LAYOUT ── */
+html { scroll-behavior: smooth; }
+body { font-size: 15px; }
+
+/* Proposal nav (sticky side-scroll nav) */
+.prop-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 950;
+  background: var(--navy);
+  padding: .55rem var(--pad-x);
+  box-shadow: 0 2px 20px rgba(0,0,0,.3);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.prop-nav::-webkit-scrollbar { display: none; }
+.prop-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  white-space: nowrap;
+  max-width: var(--max-w);
+  margin-inline: auto;
+}
+.prop-nav-logo {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--white);
+  margin-right: .75rem;
+  flex-shrink: 0;
+}
+.prop-nav-logo span { color: var(--gold); }
+.pnl {
+  color: rgba(255,255,255,.72);
+  font-size: .72rem;
+  font-weight: 500;
+  padding: .3rem .7rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background var(--trans), color var(--trans);
+  flex-shrink: 0;
+}
+.pnl:hover, .pnl.active { background: var(--gold); color: var(--navy); font-weight: 700; }
+
+/* Print button */
+.btn-print {
+  margin-left: auto;
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  padding: .32rem 1rem;
+  border-radius: 100px;
+  font-size: .72rem;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── SECTION BASE ── */
+.prop-section {
+  padding: 5.5rem var(--pad-x) 4rem;
+  min-height: 100vh;
+}
+.prop-section.compact { min-height: auto; padding-block: 3.5rem; }
+.prop-section.bg-dark  { background: var(--navy); color: var(--white); }
+.prop-section.bg-light { background: var(--off-white); }
+.prop-section.bg-white { background: var(--white); }
+.prop-section.bg-pattern {
+  background: var(--navy);
+  background-image: radial-gradient(rgba(201,168,76,.07) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+  color: var(--white);
+}
+
+.prop-inner {
+  max-width: var(--max-w);
+  margin-inline: auto;
+}
+
+/* ── SECTION LABEL ── */
+.sec-label {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  margin-bottom: 1rem;
+}
+.sec-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: .82rem;
+  flex-shrink: 0;
+}
+.sec-title-sm {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.prop-h1 {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+.prop-h1.light { color: var(--white); }
+.prop-h2 {
+  font-family: var(--font-head);
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: .75rem;
+}
+.prop-h2.light { color: var(--white); }
+.prop-h3 {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin-bottom: .5rem;
+}
+.prop-h3.light { color: var(--white); }
+.prop-h3.gold { color: var(--gold); }
+
+.lead-text {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 680px;
+}
+.lead-text.light { color: rgba(255,255,255,.78); }
+
+/* ── COVER ── */
+.cover-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--navy) 0%, #0e2040 60%, var(--navy-light) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 5.5rem var(--pad-x) 4rem;
+}
+.cover-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(201,168,76,.08) 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+}
+.cover-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin-inline: auto;
+  text-align: center;
+}
+.cover-eyebrow {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: .38rem 1.2rem;
+  border-radius: 100px;
+  margin-bottom: 2rem;
+}
+.cover-title {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 5.5vw, 3.8rem);
+  line-height: 1.12;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+}
+.cover-title span { color: var(--gold); }
+.cover-sub {
+  color: rgba(255,255,255,.75);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 3rem;
+  line-height: 1.65;
+}
+.cover-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.cm-item {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  align-items: center;
+}
+.cm-label { font-size: .68rem; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .1em; }
+.cm-value { font-size: .92rem; font-weight: 600; color: var(--white); }
+.cm-div { width: 1px; height: 30px; background: rgba(255,255,255,.15); }
+
+/* ── METRIC CARDS ── */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.1rem;
+}
+.metric-card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--r-lg);
+  padding: 1.4rem 1.2rem;
+  text-align: center;
+}
+.metric-card.light-card {
+  background: var(--white);
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.mc-val {
+  font-family: var(--font-head);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: .35rem;
+}
+.mc-val.navy { color: var(--navy); }
+.mc-label { font-size: .75rem; color: rgba(255,255,255,.7); line-height: 1.4; }
+.mc-label.dark { color: var(--text-muted); }
+.mc-note { font-size: .65rem; color: rgba(255,255,255,.4); margin-top: .3rem; }
+.mc-note.dark { color: var(--text-muted); }
+
+/* ── PERSONA CARDS ── */
+.persona-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.persona-card {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+.persona-head {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.persona-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+.persona-name { font-weight: 700; font-size: 1rem; color: var(--navy); }
+.persona-role { font-size: .78rem; color: var(--text-muted); }
+.persona-body { padding: 0 1.5rem 1.5rem; }
+.persona-tag {
+  display: inline-block;
+  background: var(--off-white);
+  color: var(--navy);
+  font-size: .68rem;
+  font-weight: 600;
+  padding: .2rem .6rem;
+  border-radius: 4px;
+  margin: .15rem .1rem .75rem;
+}
+.persona-rows { display: flex; flex-direction: column; gap: .55rem; }
+.persona-row { display: flex; gap: .75rem; font-size: .82rem; }
+.pr-icon { flex-shrink: 0; }
+.pr-label { color: var(--text-muted); min-width: 70px; }
+.pr-val { color: var(--text); font-weight: 500; flex: 1; }
+
+/* ── PLATFORM STRATEGY ── */
+.strategy-header {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: 1.75rem;
+}
+.platform-badge {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .55rem 1.1rem;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: .85rem;
+}
+.platform-badge.meta { background: #1877F2; color: white; }
+.platform-badge.tiktok { background: #010101; color: white; border: 1px solid #333; }
+.platform-badge.tiktok .pk-icon { color: #FE2C55; }
+
+/* Campaign funnel */
+.funnel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.funnel-stage {
+  padding: 1.5rem 1.25rem;
+  border-right: 1px solid rgba(255,255,255,.1);
+  position: relative;
+}
+.funnel-stage:last-child { border-right: none; }
+.funnel-stage.tofu  { background: var(--navy-light); }
+.funnel-stage.mofu  { background: #1A3A60; }
+.funnel-stage.bofu  { background: var(--navy); }
+.fs-label {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .5rem;
+}
+.fs-title { font-weight: 700; color: var(--white); font-size: .95rem; margin-bottom: .75rem; }
+.fs-items { font-size: .78rem; color: rgba(255,255,255,.72); }
+.fs-items li { padding: .2rem 0; padding-left: .8rem; position: relative; }
+.fs-items li::before { content: '→'; position: absolute; left: 0; color: var(--gold); }
+
+/* Audience targeting */
+.targeting-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.target-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r-md);
+  padding: 1.25rem;
+}
+.target-card.light {
+  background: var(--white);
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.tc-head {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: .9rem;
+  font-weight: 700;
+  font-size: .88rem;
+  color: var(--white);
+}
+.tc-head.dark { color: var(--navy); }
+.tc-icon { font-size: 1.25rem; }
+.tc-items { font-size: .82rem; color: rgba(255,255,255,.78); }
+.tc-items.dark { color: var(--text-muted); }
+.tc-items li {
+  padding: .22rem 0;
+  padding-left: .9rem;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.tc-items.dark li { border-bottom: 1px solid var(--border); }
+.tc-items li:last-child { border-bottom: none; }
+.tc-items li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+.tc-note { font-size: .72rem; color: var(--gold); margin-top: .6rem; font-style: italic; }
+
+/* ── AD CREATIVE CARDS ── */
+.creative-list { display: flex; flex-direction: column; gap: 2rem; }
+.creative-card {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.cc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.cc-title-group { display: flex; align-items: center; gap: .75rem; }
+.cc-format-badge {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .25rem .7rem;
+  border-radius: 100px;
+}
+.badge-image { background: #E3F2FD; color: #1565C0; }
+.badge-video { background: #FCE4EC; color: #C62828; }
+.badge-carousel { background: #F3E5F5; color: #6A1B9A; }
+.badge-spark { background: #FFF3E0; color: #E65100; }
+.badge-infeed { background: #E8F5E9; color: #2E7D32; }
+.cc-name { font-weight: 700; font-size: .95rem; color: var(--navy); }
+.cc-platform-tag { font-size: .72rem; color: var(--text-muted); font-weight: 500; }
+.cc-goal { font-size: .72rem; background: var(--off-white); border: 1px solid var(--border); border-radius: 4px; padding: .2rem .5rem; color: var(--text-muted); }
+.cc-body { padding: 1.5rem; }
+.cc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.cc-col-label {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: .5rem;
+}
+.cc-visual {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  border-radius: var(--r-md);
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: 1rem;
+  text-align: center;
+}
+.cv-ratio { font-size: .65rem; color: var(--gold); font-weight: 700; margin-bottom: .25rem; }
+.cv-icon { font-size: 2.5rem; }
+.cv-desc { font-size: .75rem; color: rgba(255,255,255,.7); line-height: 1.5; }
+.cc-copy-box {
+  background: var(--off-white);
+  border-radius: var(--r-md);
+  padding: 1.1rem;
+  font-size: .82rem;
+  line-height: 1.72;
+  color: var(--text);
+  height: 100%;
+  border: 1px solid var(--border);
+  white-space: pre-line;
+}
+.cc-copy-box strong { color: var(--navy); }
+.cc-copy-box .headline {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  display: block;
+  margin-bottom: .5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: .5rem;
+}
+.cc-copy-box .cta-tag {
+  display: inline-block;
+  margin-top: .75rem;
+  background: var(--navy);
+  color: var(--white);
+  font-size: .72rem;
+  font-weight: 700;
+  padding: .28rem .75rem;
+  border-radius: 4px;
+}
+.cc-metrics {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.cm-tag {
+  font-size: .72rem;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: .22rem .6rem;
+  color: var(--text-muted);
+}
+.cm-tag strong { color: var(--navy); }
+
+/* Video script */
+.script-box {
+  background: var(--navy);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.script-time {
+  background: var(--navy-light);
+  color: var(--gold);
+  font-size: .7rem;
+  font-weight: 700;
+  padding: .3rem .8rem;
+  letter-spacing: .1em;
+}
+.script-content {
+  padding: 1rem 1.1rem;
+  font-size: .82rem;
+  color: rgba(255,255,255,.82);
+  line-height: 1.65;
+  white-space: pre-line;
+}
+.script-content .s-action { color: var(--gold); font-weight: 700; }
+
+/* ── BUDGET TABLE ── */
+.budget-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .85rem;
+  min-width: 580px;
+}
+.budget-table th {
+  background: var(--navy);
+  color: var(--white);
+  padding: .85rem 1rem;
+  text-align: left;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.budget-table td {
+  padding: .75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: middle;
+}
+.budget-table tr:last-child td { border-bottom: none; }
+.budget-table tr:nth-child(even) td { background: var(--off-white); }
+.budget-table .total-row td {
+  background: #FFF8E7;
+  font-weight: 700;
+  color: var(--navy);
+  border-top: 2px solid var(--gold);
+}
+.budget-table .highlight-cell { color: var(--navy); font-weight: 700; }
+.badge-platform {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: .7rem;
+  font-weight: 700;
+  padding: .18rem .55rem;
+  border-radius: 100px;
+}
+.bp-meta { background: #E3EFFB; color: #1877F2; }
+.bp-tiktok { background: #F0F0F0; color: #010101; }
+.bp-google { background: #FEF3F0; color: #EA4335; }
+.bp-mgmt { background: #FFF8E7; color: #B8860B; }
+
+/* ── PACKAGES ── */
+.pkg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.pkg-card {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  padding: 2rem 1.75rem;
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  position: relative;
+  transition: transform var(--trans), box-shadow var(--trans);
+}
+.pkg-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.pkg-card.recommended {
+  border-color: var(--gold);
+  box-shadow: 0 6px 40px rgba(201,168,76,.2);
+}
+.pkg-rec-badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: .72rem;
+  padding: .25rem .9rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.pkg-icon { font-size: 2rem; margin-bottom: .25rem; }
+.pkg-name { font-family: var(--font-head); font-size: 1.35rem; color: var(--navy); }
+.pkg-tagline { font-size: .78rem; color: var(--text-muted); }
+.pkg-price-wrap { padding: 1rem; background: var(--off-white); border-radius: var(--r-md); }
+.pkg-mgmt-label { font-size: .65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .1em; }
+.pkg-mgmt-price { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; color: var(--navy); }
+.pkg-mgmt-period { font-size: .75rem; color: var(--text-muted); }
+.pkg-ad-note { font-size: .72rem; color: var(--text-muted); margin-top: .4rem; border-top: 1px solid var(--border); padding-top: .4rem; }
+.pkg-features { display: flex; flex-direction: column; gap: .45rem; flex: 1; }
+.pkg-feat {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  font-size: .82rem;
+  color: var(--text);
+}
+.pf-check { color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: .05rem; }
+.pkg-target {
+  padding: .75rem;
+  background: linear-gradient(135deg, #FEF9E7, #FDF3C0);
+  border-radius: var(--r-md);
+  font-size: .8rem;
+  text-align: center;
+  color: var(--navy);
+}
+
+/* ── LEAD FUNNEL VISUAL ── */
+.lead-funnel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .25rem;
+  max-width: 540px;
+  margin-inline: auto;
+}
+.lf-stage {
+  width: 100%;
+  padding: .85rem 1.25rem;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.lf-0 { background: rgba(201,168,76,.25); border: 1px solid rgba(201,168,76,.4); width: 100%; }
+.lf-1 { background: rgba(201,168,76,.2); width: 90%; }
+.lf-2 { background: rgba(201,168,76,.16); width: 78%; }
+.lf-3 { background: rgba(201,168,76,.12); width: 65%; }
+.lf-4 { background: rgba(201,168,76,.25); width: 52%; border: 1.5px solid var(--gold); }
+.lf-5 { background: var(--gold); width: 40%; }
+.lf-name { font-size: .85rem; font-weight: 600; color: var(--white); }
+.lf-5 .lf-name { color: var(--navy); }
+.lf-val { font-size: .85rem; font-weight: 700; color: var(--gold); white-space: nowrap; }
+.lf-5 .lf-val { color: var(--navy); }
+.lf-arrow { font-size: .7rem; color: rgba(255,255,255,.4); text-align: center; }
+
+/* ── ROI PROJECTION TABLE ── */
+.roi-table-wrap { overflow-x: auto; }
+.roi-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+  font-size: .83rem;
+}
+.roi-table th {
+  background: var(--navy);
+  color: var(--white);
+  padding: .8rem 1rem;
+  text-align: center;
+  font-size: .7rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.roi-table th:first-child { text-align: left; }
+.roi-table td {
+  padding: .72rem 1rem;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  color: var(--text);
+}
+.roi-table td:first-child { text-align: left; font-weight: 600; color: var(--navy); }
+.roi-table .total-row td {
+  background: #FFF8E7;
+  font-weight: 700;
+  color: var(--navy);
+  border-top: 2px solid var(--gold);
+}
+.roi-table .highlight { color: var(--navy); font-weight: 700; }
+.roi-table tr:nth-child(even) td { background: var(--off-white); }
+.roi-table .total-row td { background: #FFF8E7; }
+
+/* ── ROADMAP ── */
+.roadmap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.rm-month {
+  padding: 1.75rem 1.5rem;
+  border-right: 1px solid rgba(255,255,255,.1);
+}
+.rm-month:last-child { border-right: none; }
+.rm-month.m1 { background: var(--navy-light); }
+.rm-month.m2 { background: #1A3A60; }
+.rm-month.m3 { background: var(--navy); }
+.rm-num { color: var(--gold); font-size: .68rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: .4rem; }
+.rm-phase { font-family: var(--font-head); font-size: 1.1rem; color: var(--white); margin-bottom: 1rem; }
+.rm-items { display: flex; flex-direction: column; gap: .45rem; }
+.rm-item {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  font-size: .8rem;
+  color: rgba(255,255,255,.78);
+}
+.rm-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: .38rem; }
+.rm-target {
+  margin-top: 1rem;
+  padding: .75rem;
+  background: rgba(201,168,76,.15);
+  border-radius: var(--r-sm);
+  border: 1px solid rgba(201,168,76,.25);
+  font-size: .78rem;
+  color: var(--gold);
+  text-align: center;
+}
+
+/* ── CLOSING CTA ── */
+.closing-cta {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: var(--r-xl);
+  padding: 3rem 2.5rem;
+  text-align: center;
+}
+.closing-cta h2 {
+  font-family: var(--font-head);
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  color: var(--navy);
+  margin-bottom: .75rem;
+}
+.closing-cta p { color: rgba(10,22,40,.75); font-size: .95rem; margin-bottom: 2rem; }
+.cta-action-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn-cta-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 700;
+  font-size: .9rem;
+  padding: .9rem 1.8rem;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: var(--trans);
+}
+.btn-cta-dark:hover { background: var(--navy-light); transform: translateY(-2px); }
+.btn-cta-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: transparent;
+  color: var(--navy);
+  font-weight: 600;
+  font-size: .9rem;
+  padding: .9rem 1.8rem;
+  border-radius: 100px;
+  border: 2px solid rgba(10,22,40,.35);
+  transition: var(--trans);
+}
+.btn-cta-outline:hover { background: rgba(10,22,40,.1); }
+
+/* ── DIVIDER ── */
+.gold-divider { width: 60px; height: 3px; background: var(--gold); border-radius: 2px; margin: 1rem 0 1.5rem; }
+.gold-divider.center { margin-inline: auto; }
+
+/* ── TOOLTIP ── */
+.tooltip-wrap { position: relative; display: inline-block; }
+.tooltip-icon { width: 18px; height: 18px; border-radius: 50%; background: rgba(255,255,255,.2); color: rgba(255,255,255,.7); font-size: .7rem; display: inline-flex; align-items: center; justify-content: center; cursor: help; font-weight: 700; }
+.tooltip-text {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy);
+  color: white;
+  font-size: .7rem;
+  padding: .5rem .8rem;
+  border-radius: var(--r-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s;
+  z-index: 100;
+  box-shadow: var(--shadow-md);
+}
+.tooltip-wrap:hover .tooltip-text { opacity: 1; }
+
+/* ── PRINT ── */
+@media print {
+  .prop-nav, .btn-print, .wa-float { display: none !important; }
+  body { font-size: 12px; }
+  .cover-hero, .prop-section { min-height: auto; page-break-after: always; }
+  .prop-section { padding-block: 2rem; }
+  .cover-hero { padding: 2rem; }
+  .creative-card, .persona-card, .pkg-card { break-inside: avoid; }
+  .budget-table-wrap, .roi-table-wrap { overflow: visible; }
+  .budget-table, .roi-table { min-width: unset; }
+  a[href]:after { content: none !important; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .funnel-grid { grid-template-columns: 1fr; }
+  .targeting-grid { grid-template-columns: 1fr; }
+  .cc-grid { grid-template-columns: 1fr; }
+  .pkg-grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
+  .roadmap { grid-template-columns: 1fr; }
+  .rm-month { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .rm-month:last-child { border-bottom: none; }
+  .metric-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .persona-grid { grid-template-columns: 1fr; }
+  .cover-meta { gap: 1rem; }
+  .cm-div { display: none; }
+  .cta-action-grid { flex-direction: column; align-items: stretch; }
+  .metric-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================
+     PROPOSAL NAV (STICKY)
+============================= -->
+<nav class="prop-nav" id="propNav" aria-label="Navigasi proposal">
+  <div class="prop-nav-inner">
+    <span class="prop-nav-logo">TERRA<span>NOVA</span></span>
+    <a class="pnl" href="#cover">Cover</a>
+    <a class="pnl" href="#peluang">Peluang</a>
+    <a class="pnl" href="#audience">Audience</a>
+    <a class="pnl" href="#meta">Meta Ads</a>
+    <a class="pnl" href="#tiktok">TikTok</a>
+    <a class="pnl" href="#creative">Materi Iklan</a>
+    <a class="pnl" href="#leads">Lead Gen</a>
+    <a class="pnl" href="#budget">Budget & ROI</a>
+    <a class="pnl" href="#packages">Paket</a>
+    <a class="pnl" href="#roadmap">Roadmap</a>
+    <button class="btn-print" onclick="window.print()" aria-label="Cetak proposal">🖨️ Print / PDF</button>
+  </div>
+</nav>
+
+<!-- ============================
+     COVER
+============================= -->
+<section class="cover-hero" id="cover">
+  <div class="cover-content">
+    <span class="cover-eyebrow">Proposal Resmi · Strategi Pemasaran Digital 2026</span>
+    <h1 class="cover-title">
+      Strategi Iklan Digital<br />
+      <span>Meta Ads &amp; TikTok Ads</span><br />
+      untuk Terranova Residence
+    </h1>
+    <p class="cover-sub">
+      Rencana pemasaran online terukur untuk mempercepat penjualan unit hunian Terranova Residence
+      di Rancaekek, Bandung — dengan target lead, estimasi biaya, ROI, dan materi iklan siap tayang.
+    </p>
+    <div class="cover-meta">
+      <div class="cm-item"><span class="cm-label">Disiapkan Untuk</span><span class="cm-value">PT. Gendewa Bhuwana Property</span></div>
+      <div class="cm-div"></div>
+      <div class="cm-item"><span class="cm-label">Proyek</span><span class="cm-value">Terranova Residence</span></div>
+      <div class="cm-div"></div>
+      <div class="cm-item"><span class="cm-label">Tanggal</span><span class="cm-value">September 2026</span></div>
+      <div class="cm-div"></div>
+      <div class="cm-item"><span class="cm-label">Platform</span><span class="cm-value">Meta Ads · TikTok Ads</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     PELUANG PASAR
+============================= -->
+<section class="prop-section bg-light" id="peluang">
+  <div class="prop-inner">
+    <div class="sec-label">
+      <div class="sec-num">1</div>
+      <span class="sec-title-sm">Executive Summary &amp; Peluang Pasar</span>
+    </div>
+    <h2 class="prop-h2">Mengapa Sekarang Waktu Terbaik untuk Beriklan?</h2>
+    <div class="gold-divider"></div>
+    <p class="lead-text" style="margin-bottom:2.5rem">
+      Terranova Residence hadir di momen yang tepat: demand hunian di Bandung Timur terus meningkat, 
+      harga masih kompetitif, dan pengguna media sosial di area Jabodetabek-Bandung tumbuh pesat. 
+      Strategi digital yang terukur akan mengakselerasi penjualan secara signifikan.
+    </p>
+
+    <div class="metric-grid" style="margin-bottom:2.5rem">
+      <div class="metric-card light-card">
+        <div class="mc-val navy">30</div>
+        <div class="mc-label dark">Unit tersedia<br />(estimasi stok)</div>
+      </div>
+      <div class="metric-card light-card">
+        <div class="mc-val navy">Rp 710 Jt</div>
+        <div class="mc-label dark">Harga per unit<br />(68/60)</div>
+      </div>
+      <div class="metric-card light-card">
+        <div class="mc-val navy">Rp 21,3 M</div>
+        <div class="mc-label dark">Potensi total revenue<br />(30 unit × Rp 710 Jt)</div>
+      </div>
+      <div class="metric-card light-card">
+        <div class="mc-val" style="color:var(--gold)">Rp 426 Jt</div>
+        <div class="mc-label dark">Potensi komisi 2%<br />(jika semua unit terjual)</div>
+      </div>
+      <div class="metric-card light-card">
+        <div class="mc-val navy">3–6 Bln</div>
+        <div class="mc-label dark">Estimasi waktu<br />habis semua unit</div>
+      </div>
+      <div class="metric-card light-card">
+        <div class="mc-val" style="color:#E53935">1,8 M+</div>
+        <div class="mc-label dark">Pengguna Meta Ads<br />di Jawa Barat</div>
+      </div>
+    </div>
+
+    <div style="background:var(--white);border-radius:var(--r-xl);padding:2rem;box-shadow:var(--shadow-sm);border:1px solid var(--border)">
+      <h3 class="prop-h3" style="margin-bottom:1rem">Keunggulan Kompetitif Terranova vs Perumahan Lain di Area</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem">
+        <div style="padding:1.1rem;background:var(--off-white);border-radius:var(--r-md)">
+          <div style="font-size:1.5rem;margin-bottom:.5rem">🏛️</div>
+          <div style="font-weight:700;font-size:.88rem;color:var(--navy);margin-bottom:.25rem">Desain Premium</div>
+          <div style="font-size:.78rem;color:var(--text-muted)">Scandinavian Modern — langka di harga segmen ini. Jadi konten iklan yang self-selling.</div>
+        </div>
+        <div style="padding:1.1rem;background:var(--off-white);border-radius:var(--r-md)">
+          <div style="font-size:1.5rem;margin-bottom:.5rem">💰</div>
+          <div style="font-weight:700;font-size:.88rem;color:var(--navy);margin-bottom:.25rem">KPR Terjangkau</div>
+          <div style="font-size:.78rem;color:var(--text-muted)">Angsuran 4,8 Juta/Bulan = hook iklan paling kuat untuk segmen first-time buyer.</div>
+        </div>
+        <div style="padding:1.1rem;background:var(--off-white);border-radius:var(--r-md)">
+          <div style="font-size:1.5rem;margin-bottom:.5rem">📍</div>
+          <div style="font-weight:700;font-size:.88rem;color:var(--navy);margin-bottom:.25rem">Lokasi Strategis</div>
+          <div style="font-size:.78rem;color:var(--text-muted)">Dekat stasiun, tol, sekolah, pasar. Targeting location-based sangat efektif.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     TARGET AUDIENCE
+============================= -->
+<section class="prop-section bg-dark" id="audience">
+  <div class="prop-inner">
+    <div class="sec-label">
+      <div class="sec-num">2</div>
+      <span class="sec-title-sm">Target Audience &amp; Buyer Persona</span>
+    </div>
+    <h2 class="prop-h2 light">Siapa yang Akan Kita Sasar?</h2>
+    <div class="gold-divider"></div>
+    <p class="lead-text light" style="margin-bottom:2.5rem">
+      Berdasarkan profil harga, lokasi, dan spesifikasi Terranova Residence, kami mengidentifikasi 
+      <strong style="color:var(--gold)">3 Buyer Persona utama</strong> yang paling berpotensi konversi.
+    </p>
+
+    <div class="persona-grid">
+      <!-- Persona 1 -->
+      <div class="persona-card">
+        <div class="persona-head">
+          <div class="persona-avatar">👨‍💼</div>
+          <div>
+            <div class="persona-name">Aldi — "The Upgrader"</div>
+            <div class="persona-role">Karyawan swasta / ASN</div>
+          </div>
+        </div>
+        <div class="persona-body">
+          <span class="persona-tag">26–38 tahun</span>
+          <span class="persona-tag">Penghasilan Rp 5–15 Jt/bln</span>
+          <span class="persona-tag">Sudah menikah</span>
+          <div class="persona-rows">
+            <div class="persona-row"><span class="pr-icon">📍</span><span class="pr-label">Lokasi</span><span class="pr-val">Bandung, Cileunyi, Majalaya, Garut, Sumedang</span></div>
+            <div class="persona-row"><span class="pr-icon">😩</span><span class="pr-label">Pain Point</span><span class="pr-val">Masih ngontrak / kos, bingung beli rumah karena DP mahal</span></div>
+            <div class="persona-row"><span class="pr-icon">💡</span><span class="pr-label">Trigger</span><span class="pr-val">Angsuran kecil, DP ringan, proses KPR mudah</span></div>
+            <div class="persona-row"><span class="pr-icon">📱</span><span class="pr-label">Platform</span><span class="pr-val">Facebook, Instagram, YouTube</span></div>
+            <div class="persona-row"><span class="pr-icon">🎯</span><span class="pr-label">Best Hook</span><span class="pr-val">"Cicilan lebih murah dari kos premium!"</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Persona 2 -->
+      <div class="persona-card">
+        <div class="persona-head">
+          <div class="persona-avatar">👩‍💻</div>
+          <div>
+            <div class="persona-name">Sari — "The Aesthetic Buyer"</div>
+            <div class="persona-role">Wiraswasta / freelancer / UMKM</div>
+          </div>
+        </div>
+        <div class="persona-body">
+          <span class="persona-tag">25–40 tahun</span>
+          <span class="persona-tag">Penghasilan Rp 7–20 Jt/bln</span>
+          <span class="persona-tag">Single / baru menikah</span>
+          <div class="persona-rows">
+            <div class="persona-row"><span class="pr-icon">📍</span><span class="pr-label">Lokasi</span><span class="pr-val">Bandung Kota, Cimahi, Bekasi, Depok</span></div>
+            <div class="persona-row"><span class="pr-icon">😩</span><span class="pr-label">Pain Point</span><span class="pr-val">Mau punya rumah aesthetic tapi budget terbatas</span></div>
+            <div class="persona-row"><span class="pr-icon">💡</span><span class="pr-label">Trigger</span><span class="pr-val">Desain modern Scandinavian, foto interior yang bagus</span></div>
+            <div class="persona-row"><span class="pr-icon">📱</span><span class="pr-label">Platform</span><span class="pr-val">Instagram, TikTok, Pinterest</span></div>
+            <div class="persona-row"><span class="pr-icon">🎯</span><span class="pr-label">Best Hook</span><span class="pr-val">"Rumah Scandinavian Modern, harga lebih masuk akal dari yang kamu bayangkan"</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Persona 3 -->
+      <div class="persona-card">
+        <div class="persona-head">
+          <div class="persona-avatar">👨‍👩‍👧</div>
+          <div>
+            <div class="persona-name">Pak Hendra — "The Investor Parent"</div>
+            <div class="persona-role">Pengusaha / investor properti</div>
+          </div>
+        </div>
+        <div class="persona-body">
+          <span class="persona-tag">38–55 tahun</span>
+          <span class="persona-tag">Penghasilan Rp 15 Jt+/bln</span>
+          <span class="persona-tag">Sudah menikah, punya anak</span>
+          <div class="persona-rows">
+            <div class="persona-row"><span class="pr-icon">📍</span><span class="pr-label">Lokasi</span><span class="pr-val">Bandung, Jakarta, Surabaya (remote buyer)</span></div>
+            <div class="persona-row"><span class="pr-icon">😩</span><span class="pr-label">Pain Point</span><span class="pr-val">Nyari properti untuk anak / investasi yang aman</span></div>
+            <div class="persona-row"><span class="pr-icon">💡</span><span class="pr-label">Trigger</span><span class="pr-val">Developer terpercaya, legalitas SHM, potensi kenaikan harga</span></div>
+            <div class="persona-row"><span class="pr-icon">📱</span><span class="pr-label">Platform</span><span class="pr-val">Facebook, WhatsApp, YouTube</span></div>
+            <div class="persona-row"><span class="pr-icon">🎯</span><span class="pr-label">Best Hook</span><span class="pr-val">"Investasi properti Bandung — harga sekarang, nilai naik terus"</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);padding:1.75rem">
+      <h3 class="prop-h3 gold" style="margin-bottom:1.1rem">📊 Demografik &amp; Geografik Targeting — Advanced Mode</h3>
+      <div class="targeting-grid">
+        <div class="target-card">
+          <div class="tc-head"><span class="tc-icon">👤</span>Demografik Inti</div>
+          <ul class="tc-items">
+            <li>Usia: <strong style="color:var(--gold)">25–52 tahun</strong> (sweet spot: 28–42)</li>
+            <li>Gender: Semua (58% pria, 42% wanita berdasarkan data industri)</li>
+            <li>Status: Menikah, Baru Menikah, Lajang (25+)</li>
+            <li>Pendidikan: SMA ke atas</li>
+            <li>Pekerjaan: Karyawan, ASN, Wiraswasta, Profesional</li>
+            <li>Bahasa: Indonesia</li>
+          </ul>
+        </div>
+        <div class="target-card">
+          <div class="tc-head"><span class="tc-icon">📍</span>Geografik (Radius Targeting)</div>
+          <ul class="tc-items">
+            <li><strong style="color:var(--gold)">Primer:</strong> Bandung Kab &amp; Kota (25 km radius)</li>
+            <li><strong style="color:var(--gold)">Sekunder:</strong> Sumedang, Garut, Majalaya</li>
+            <li><strong style="color:var(--gold)">Tersier:</strong> Bekasi, Depok, Jakarta Selatan</li>
+            <li>Exclude: Dalam 2 km dari lokasi (sudah tahu)</li>
+            <li>Location PIN: Jl. Rancakihiang, Bojongloa</li>
+          </ul>
+          <p class="tc-note">💡 Gunakan radius 35km dari pin lokasi sebagai base targeting.</p>
+        </div>
+        <div class="target-card">
+          <div class="tc-head"><span class="tc-icon">🎯</span>Interest Targeting (Meta)</div>
+          <ul class="tc-items">
+            <li>Real estate, Properti, KPR, Rumah subsidi</li>
+            <li>Home decor, Interior design, Scandinavian design</li>
+            <li>Bank BTN, Bank BRI, Bank BNI (KPR users)</li>
+            <li>99.co, Rumah.com, OLX Properti (kompetitor)</li>
+            <li>First-time home buyer, Newly married</li>
+            <li>Home improvement, Furnishing</li>
+          </ul>
+        </div>
+        <div class="target-card">
+          <div class="tc-head"><span class="tc-icon">⚡</span>Behavior &amp; Advanced Targeting</div>
+          <ul class="tc-items">
+            <li><strong style="color:var(--gold)">Custom Audience:</strong> Pixel website visitor (retargeting)</li>
+            <li><strong style="color:var(--gold)">Lookalike 1–3%:</strong> Dari daftar prospek/buyer sebelumnya</li>
+            <li><strong style="color:var(--gold)">Video View 75%+:</strong> Retarget yang nonton video hampir habis</li>
+            <li>Engaged shoppers (pernah klik iklan properti)</li>
+            <li>Expats Indonesia, Overseas Filipinos (investor)</li>
+            <li>Recently moved, Planning to move</li>
+          </ul>
+          <p class="tc-note">⚡ Custom + Lookalike = CPL 30–50% lebih murah dari cold audience.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     META ADS STRATEGY
+============================= -->
+<section class="prop-section bg-white" id="meta">
+  <div class="prop-inner">
+    <div class="sec-label">
+      <div class="sec-num">3</div>
+      <span class="sec-title-sm">Meta Ads — Facebook &amp; Instagram</span>
+    </div>
+    <div class="strategy-header">
+      <div class="platform-badge meta">
+        <span>f</span> Meta Ads
+      </div>
+      <div>
+        <h2 class="prop-h2" style="margin-bottom:.2rem">Strategi Facebook &amp; Instagram Ads</h2>
+        <p style="font-size:.85rem;color:var(--text-muted)">Funnel 3 stage · Lead Generation · Retargeting · Lookalike</p>
+      </div>
+    </div>
+
+    <h3 class="prop-h3" style="margin-bottom:1rem">Struktur Campaign (TOFU → MOFU → BOFU)</h3>
+    <div class="funnel-grid" style="margin-bottom:2.5rem">
+      <div class="funnel-stage tofu">
+        <div class="fs-label">TOFU — Awareness</div>
+        <div class="fs-title">Kenalkan Terranova ke Audiens Baru</div>
+        <ul class="fs-items">
+          <li>Objective: Reach / Video Views</li>
+          <li>Budget: 25% total budget</li>
+          <li>Format: Video pendek 15-30 detik</li>
+          <li>Konten: Fasad, area perumahan, lokasi</li>
+          <li>Audience: Cold — interest + location</li>
+          <li>Duration: Tayang terus sebagai brand awareness</li>
+        </ul>
+      </div>
+      <div class="funnel-stage mofu">
+        <div class="fs-label">MOFU — Consideration</div>
+        <div class="fs-title">Edukasi dan Tumbuhkan Minat</div>
+        <ul class="fs-items">
+          <li>Objective: Lead Generation / Traffic</li>
+          <li>Budget: 50% total budget</li>
+          <li>Format: Carousel + Single Image + Video</li>
+          <li>Konten: Interior, denah, harga, KPR info</li>
+          <li>Audience: Video viewer 25%+ dari TOFU</li>
+          <li>CTA: "Tanya Harga", "Download Brosur"</li>
+        </ul>
+      </div>
+      <div class="funnel-stage bofu">
+        <div class="fs-label">BOFU — Conversion</div>
+        <div class="fs-title">Dorong Booking &amp; Survey</div>
+        <ul class="fs-items">
+          <li>Objective: Messages / Conversion</li>
+          <li>Budget: 25% total budget</li>
+          <li>Format: Single Image + Lead Form</li>
+          <li>Konten: Promo, urgency, FOMO, testimonial</li>
+          <li>Audience: Website visitors, lead form viewers</li>
+          <li>CTA: "Booking Sekarang", "Jadwal Survey"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem">
+      <div style="background:var(--off-white);border-radius:var(--r-lg);padding:1.5rem">
+        <h4 style="font-weight:700;color:var(--navy);margin-bottom:1rem;font-size:.95rem">📐 Struktur Ad Set yang Direkomendasikan</h4>
+        <div style="display:flex;flex-direction:column;gap:.6rem;font-size:.82rem;color:var(--text-muted)">
+          <div style="padding:.65rem .85rem;background:white;border-radius:var(--r-sm);border-left:3px solid var(--gold)">
+            <strong style="color:var(--navy)">Campaign 1:</strong> Awareness — Video Views<br/>
+            Ad Set A: Interest – Properti Bandung<br/>
+            Ad Set B: Location – 35km dari pin
+          </div>
+          <div style="padding:.65rem .85rem;background:white;border-radius:var(--r-sm);border-left:3px solid #1877F2">
+            <strong style="color:var(--navy)">Campaign 2:</strong> Lead Generation — KPR Info<br/>
+            Ad Set A: Lookalike 1% dari buyer list<br/>
+            Ad Set B: Video viewer 50%+ retargeting
+          </div>
+          <div style="padding:.65rem .85rem;background:white;border-radius:var(--r-sm);border-left:3px solid #E53935">
+            <strong style="color:var(--navy)">Campaign 3:</strong> Conversion — Booking<br/>
+            Ad Set A: Website pixel retargeting<br/>
+            Ad Set B: Lead form opener (belum konversi)
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--off-white);border-radius:var(--r-lg);padding:1.5rem">
+        <h4 style="font-weight:700;color:var(--navy);margin-bottom:1rem;font-size:.95rem">⚙️ Pengaturan Teknis Wajib</h4>
+        <div style="font-size:.82rem;color:var(--text-muted);display:flex;flex-direction:column;gap:.55rem">
+          <div>✅ <strong style="color:var(--navy)">Meta Pixel</strong> — pasang di semua halaman landing page</div>
+          <div>✅ <strong style="color:var(--navy)">Conversion API (CAPI)</strong> — backup data pixel jika iOS block</div>
+          <div>✅ <strong style="color:var(--navy)">Lead Form Native</strong> — form di dalam FB/IG untuk mobile-first</div>
+          <div>✅ <strong style="color:var(--navy)">WhatsApp Business API</strong> — click-to-WhatsApp ads</div>
+          <div>✅ <strong style="color:var(--navy)">Catalog Properti</strong> — listing tiap unit jadi Dynamic Ads</div>
+          <div>✅ <strong style="color:var(--navy)">Custom Events:</strong> ViewContent, Lead, InitiateCheckout</div>
+          <div>✅ <strong style="color:var(--navy)">UTM Parameter</strong> — tracking per campaign/ad set/ad</div>
+          <div>⚡ <strong style="color:var(--gold)">Advantage+ Campaign</strong> — AI optimization Meta terbaru</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#E8F4FD;border-radius:var(--r-md);padding:1.1rem 1.4rem;border-left:4px solid #1877F2;font-size:.83rem;color:#1565C0">
+      💡 <strong>Tips Advanced:</strong> Gunakan <strong>Advantage+ Audience</strong> di MOFU campaign — biarkan Meta AI mencari audience sendiri berdasarkan sinyal pixel. Terbukti menurunkan CPL 20–40% dibanding manual targeting untuk property leads di Indonesia.
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     TIKTOK ADS STRATEGY
+============================= -->
+<section class="prop-section bg-light" id="tiktok">
+  <div class="prop-inner">
+    <div class="sec-label">
+      <div class="sec-num">4</div>
+      <span class="sec-title-sm">TikTok Ads Strategy</span>
+    </div>
+    <div class="strategy-header">
+      <div class="platform-badge tiktok">
+        <span class="pk-icon">▶</span> TikTok Ads
+      </div>
+      <div>
+        <h2 class="prop-h2" style="margin-bottom:.2rem">Strategi TikTok Ads</h2>
+        <p style="font-size:.85rem;color:var(--text-muted)">In-Feed Ads · Spark Ads · TopView · Lead Generation</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2.5rem">
+      <div style="background:white;border-radius:var(--r-lg);padding:1.5rem;box-shadow:var(--shadow-sm);border:1px solid var(--border)">
+        <div style="font-size:1.75rem;margin-bottom:.5rem">📱</div>
+        <h4 style="font-weight:700;color:var(--navy);font-size:.92rem;margin-bottom:.4rem">In-Feed Ads</h4>
+        <p style="font-size:.78rem;color:var(--text-muted);line-height:1.6">Video 15–60 detik muncul di For You Page (FYP). Format paling scalable untuk lead gen properti. Cost-efficient.</p>
+        <div style="margin-top:.75rem;font-size:.72rem;background:var(--off-white);padding:.5rem .7rem;border-radius:var(--r-sm)">Budget: 60% dari total TikTok budget</div>
+      </div>
+      <div style="background:white;border-radius:var(--r-lg);padding:1.5rem;box-shadow:var(--shadow-sm);border:1px solid var(--border)">
+        <div style="font-size:1.75rem;margin-bottom:.5rem">✨</div>
+        <h4 style="font-weight:700;color:var(--navy);font-size:.92rem;margin-bottom:.4rem">Spark Ads</h4>
+        <p style="font-size:.78rem;color:var(--text-muted);line-height:1.6">Boost konten organik (repost, review, tour video) dari akun sendiri atau creator. Social proof tinggi, engagement lebih natural.</p>
+        <div style="margin-top:.75rem;font-size:.72rem;background:var(--off-white);padding:.5rem .7rem;border-radius:var(--r-sm)">Budget: 25% dari total TikTok budget</div>
+      </div>
+      <div style="background:white;border-radius:var(--r-lg);padding:1.5rem;box-shadow:var(--shadow-sm);border:1px solid var(--border)">
+        <div style="font-size:1.75rem;margin-bottom:.5rem">🎯</div>
+        <h4 style="font-weight:700;color:var(--navy);font-size:.92rem;margin-bottom:.4rem">Lead Generation Ads</h4>
+        <p style="font-size:.78rem;color:var(--text-muted);line-height:1.6">Form leads langsung di TikTok — nama, nomor WA, email. Integrasi langsung ke WhatsApp untuk follow-up instan.</p>
+        <div style="margin-top:.75rem;font-size:.72rem;background:var(--off-white);padding:.5rem .7rem;border-radius:var(--r-sm)">Budget: 15% dari total TikTok budget</div>
+      </div>
+    </div>
+
+    <h3 class="prop-h3" style="margin-bottom:1rem">🎯 Audience Targeting TikTok (Advanced)</h3>
+    <div class="targeting-grid" style="margin-bottom:2rem">
+      <div class="target-card light">
+        <div class="tc-head dark"><span class="tc-icon">🏷️</span>Interest Targeting</div>
+        <ul class="tc-items dark">
+          <li>Real estate &amp; property Indonesia</li>
+          <li>Home design, Interior, Architecture</li>
+          <li>Mortgage, KPR, Finance personal</li>
+          <li>Bandung lifestyle, Jabar community</li>
+          <li>First home, Moving house</li>
+          <li>DIY home, Home renovation</li>
+        </ul>
+      </div>
+      <div class="target-card light">
+        <div class="tc-head dark"><span class="tc-icon">📹</span>Video Interaction Audience</div>
+        <ul class="tc-items dark">
+          <li>Viewer konten properti / rumah</li>
+          <li>Viewer konten KPR, cicilan rumah</li>
+          <li>Engager hashtag: #RumahBandung #KPR #Properti</li>
+          <li>Follower akun developer properti</li>
+          <li>Creator: @properti.kpr.id dan sejenisnya</li>
+        </ul>
+        <p style="font-size:.72rem;color:var(--gold);margin-top:.5rem;font-style:italic">💡 Hashtag Targeting = fitur unik TikTok, tidak ada di Meta!</p>
+      </div>
+      <div class="target-card light">
+        <div class="tc-head dark"><span class="tc-icon">🔁</span>Custom &amp; Lookalike Audience</div>
+        <ul class="tc-items dark">
+          <li>Customer File Upload (daftar prospek)</li>
+          <li>App/Website Event Audience (pixel TikTok)</li>
+          <li>Lead Form Opener — retarget belum submit</li>
+          <li>Lookalike 1% dari customer file</li>
+          <li>Video Viewer 75%+ (retarget warm audience)</li>
+        </ul>
+      </div>
+      <div class="target-card light">
+        <div class="tc-head dark"><span class="tc-icon">⚙️</span>Pengaturan Teknis Wajib</div>
+        <ul class="tc-items dark">
+          <li>✅ TikTok Pixel — pasang di landing page</li>
+          <li>✅ Events API — server-side tracking</li>
+          <li>✅ Smart+ Campaign (AI dari TikTok)</li>
+          <li>✅ Video format: 9:16, min 15 detik</li>
+          <li>✅ Teks hook: muncul di 3 detik pertama</li>
+          <li>✅ Auto-captions aktifkan untuk engagement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     MATERI IKLAN (AD CREATIVES)
+============================= -->
+<section class="prop-section bg-dark" id="creative">
+  <div class="prop-inner">
+    <div class="sec-label">
+      <div class="sec-num">5</div>
+      <span class="sec-title-sm">Materi Iklan — Copy, Visual &amp; Video Script</span>
+    </div>
+    <h2 class="prop-h2 light">Contoh Materi Iklan Siap Tayang</h2>
+    <div class="gold-divider"></div>
+    <p class="lead-text light" style="margin-bottom:2.5rem">
+      Berikut adalah contoh copy, visual brief, dan video script yang dirancang dengan hook kuat 
+      berdasarkan buyer persona yang telah diidentifikasi.
+    </p>
+
+    <div class="creative-list">
+
+      <!-- AD 1: Meta Single Image -->
+      <div class="creative-card">
+        <div class="cc-header">
+          <div class="cc-title-group">
+            <span class="cc-format-badge badge-image">📸 Single Image</span>
+            <div>
+              <div class="cc-name">Ad #1 — "Cicilan Lebih Murah dari Kos"</div>
+              <div class="cc-platform-tag">Meta Ads · Facebook &amp; Instagram Feed / Stories</div>
+            </div>
+          </div>
+          <div class="cc-goal">🎯 MOFU · Lead Generation · Persona: Aldi</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-grid">
+            <div>
+              <div class="cc-col-label">Visual Brief (1:1 / 4:5)</div>
+              <div class="cc-visual">
+                <div class="cv-ratio">📐 1080×1080 atau 1080×1350px</div>
+                <div class="cv-icon">🏠</div>
+                <div class="cv-desc">
+                  <strong style="color:var(--gold)">Foto:</strong> Fasad depan Terranova angle low-shot dramatis<br/><br/>
+                  <strong style="color:var(--gold)">Overlay teks:</strong><br/>
+                  Headline besar: <em>"Rp 4,8 Jt/Bulan"</em><br/>
+                  Sub: "Rumah 2 Lantai Scandinavian Modern"<br/><br/>
+                  <strong style="color:var(--gold)">Logo:</strong> Terranova pojok kiri bawah<br/>
+                  <strong style="color:var(--gold)">Badge:</strong> "GRATIS Pajak" pojok kanan atas
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="cc-col-label">Ad Copy</div>
+              <div class="cc-copy-box"><span class="headline">🏠 Masih Bayar Kos Tiap Bulan? Ini Saatnya Punya Rumah Sendiri.</span>
+Banyak yang belum tahu — cicilan rumah impian bisa LEBIH MURAH dari biaya kos di Bandung.
+
+<strong>Terranova Residence</strong> hadir untuk kamu yang udah capek ngontrak:
+
+✅ Rumah 2 lantai, desain Scandinavian Modern
+✅ 3 kamar tidur + balkon view asri
+✅ KPR angsuran mulai <strong>Rp 4.826.551/bulan</strong>
+✅ GRATIS biaya pajak — masa promo ini!
+✅ Booking fee cuma <strong>Rp 3 JUTA</strong>
+
+📍 Rancaekek Bandung — dekat stasiun, tol Cileunyi, sekolah &amp; pasar.
+
+⚠️ Unit terbatas! Jangan sampai kehabisan.
+
+👇 Klik untuk cek harga lengkap &amp; jadwal survey GRATIS<span class="cta-tag">📋 Pelajari Selengkapnya →</span></div>
+              <div class="cc-metrics">
+                <span class="cm-tag">Target CTR: <strong>2–4%</strong></span>
+                <span class="cm-tag">Est. CPL: <strong>Rp 35–80rb</strong></span>
+                <span class="cm-tag">Audience: <strong>Cold + Warm</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AD 2: Meta Carousel -->
+      <div class="creative-card">
+        <div class="cc-header">
+          <div class="cc-title-group">
+            <span class="cc-format-badge badge-carousel">🎠 Carousel</span>
+            <div>
+              <div class="cc-name">Ad #2 — "5 Alasan Pilih Terranova"</div>
+              <div class="cc-platform-tag">Meta Ads · Facebook &amp; Instagram Feed</div>
+            </div>
+          </div>
+          <div class="cc-goal">🎯 MOFU · Traffic + Lead · Persona: Sari &amp; Aldi</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-col-label" style="margin-bottom:.75rem">Primary Text (di atas carousel)</div>
+          <div class="cc-copy-box" style="margin-bottom:1.25rem">Bingung cari rumah yang <strong>estetik, fungsional, dan harganya masuk akal</strong> di Bandung?
+
+Swipe → untuk lihat 5 alasan kenapa Terranova Residence jadi pilihan terbaik tahun ini 👇</div>
+
+          <div class="cc-col-label" style="margin-bottom:.75rem">Slide Carousel (5 kartu)</div>
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem">
+            <div style="background:var(--navy);border-radius:var(--r-sm);padding:.85rem;text-align:center">
+              <div style="font-size:1.5rem;margin-bottom:.35rem">🏛️</div>
+              <div style="font-size:.65rem;color:var(--gold);font-weight:700">SLIDE 1</div>
+              <div style="font-size:.7rem;color:white;margin-top:.25rem">Desain Scandinavian Modern yang langka di harga ini</div>
+            </div>
+            <div style="background:var(--navy-light);border-radius:var(--r-sm);padding:.85rem;text-align:center">
+              <div style="font-size:1.5rem;margin-bottom:.35rem">💰</div>
+              <div style="font-size:.65rem;color:var(--gold);font-weight:700">SLIDE 2</div>
+              <div style="font-size:.7rem;color:white;margin-top:.25rem">KPR mulai 4,8 Juta/Bulan</div>
+            </div>
+            <div style="background:var(--navy);border-radius:var(--r-sm);padding:.85rem;text-align:center">
+              <div style="font-size:1.5rem;margin-bottom:.35rem">📍</div>
+              <div style="font-size:.65rem;color:var(--gold);font-weight:700">SLIDE 3</div>
+              <div style="font-size:.7rem;color:white;margin-top:.25rem">Lokasi strategis, dekat stasiun &amp; tol Cileunyi</div>
+            </div>
+            <div style="background:var(--navy-light);border-radius:var(--r-sm);padding:.85rem;text-align:center">
+              <div style="font-size:1.5rem;margin-bottom:.35rem">🏗️</div>
+              <div style="font-size:.65rem;color:var(--gold);font-weight:700">SLIDE 4</div>
+              <div style="font-size:.7rem;color:white;margin-top:.25rem">Material premium: granit 60×60, baja ringan, gypsum</div>
+            </div>
+            <div style="background:var(--gold);border-radius:var(--r-sm);padding:.85rem;text-align:center">
+              <div style="font-size:1.5rem;margin-bottom:.35rem">🎁</div>
+              <div style="font-size:.65rem;color:var(--navy);font-weight:700">SLIDE 5</div>
+              <div style="font-size:.7rem;color:var(--navy);margin-top:.25rem">GRATIS Pajak! Booking 3 Juta Aja!</div>
+            </div>
+          </div>
+          <div class="cc-metrics" style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
+            <span class="cm-tag">Target CTR: <strong>3–6%</strong></span>
+            <span class="cm-tag">Best for: <strong>Instagram Feed</strong></span>
+            <span class="cm-tag">Tiap slide: <strong>CTA ke WA</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AD 3: META VIDEO SCRIPT -->
+      <div class="creative-card">
+        <div class="cc-header">
+          <div class="cc-title-group">
+            <span class="cc-format-badge badge-video">🎬 Video Ad</span>
+            <div>
+              <div class="cc-name">Ad #3 — Hook FOMO "Unit Hampir Habis"</div>
+              <div class="cc-platform-tag">Meta Ads · Facebook/IG Reels + TikTok In-Feed</div>
+            </div>
+          </div>
+          <div class="cc-goal">🎯 BOFU · Urgency · Persona: Semua</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-col-label" style="margin-bottom:.75rem">Script Video (30 detik · Ratio 9:16 · Vertikal)</div>
+          <div class="script-box">
+            <div class="script-time">⏱ 0–3 detik — HOOK (tampilkan di 3 detik pertama, teks overlay besar)</div>
+            <div class="script-content"><span class="s-action">[VISUAL: Close-up fasad dramatis, kamera perlahan menjauh]</span>
+<strong style="color:white">TEKS OVERLAY BESAR: "⚠️ Jangan Beli Rumah di Bandung Sebelum Lihat Ini!"</strong></div>
+            <div class="script-time">⏱ 3–10 detik — PROBLEM AGITATION</div>
+            <div class="script-content"><span class="s-action">[Voice over + teks overlay rolling]</span>
+"Udah capek nyewa kontrakan tiap tahun naik?
+Mau punya rumah tapi bingung soal DP dan KPR?"</div>
+            <div class="script-time">⏱ 10–22 detik — SOLUTION SHOWCASE</div>
+            <div class="script-content"><span class="s-action">[Cut ke: interior ruang tamu → dapur → kamar tidur → balkon → fasad malam]</span>
+"Terranova Residence — hunian Scandinavian Modern 2 lantai di Rancaekek Bandung.
+3 kamar tidur. Desain premium. Angsuran mulai <strong style="color:var(--gold)">4,8 juta per bulan!</strong>"</div>
+            <div class="script-time">⏱ 22–30 detik — CTA URGENCY</div>
+            <div class="script-content"><span class="s-action">[Visual: badge GRATIS PAJAK animasi masuk + nomor WA]</span>
+<strong style="color:var(--gold)">"GRATIS biaya pajak! Booking mulai 3 JUTA DOANG."</strong>
+"Stok terbatas. Chat kami sekarang — survey GRATIS!"
+<span class="s-action">[End card: Logo Terranova + nomor WA + tombol CTA]</span></div>
+          </div>
+          <div class="cc-metrics">
+            <span class="cm-tag">Duration: <strong>30 detik</strong></span>
+            <span class="cm-tag">Format: <strong>9:16 vertikal</strong></span>
+            <span class="cm-tag">Hook style: <strong>FOMO + Problem</strong></span>
+            <span class="cm-tag">Est. VTR: <strong>15–25%</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AD 4: TikTok In-Feed POV -->
+      <div class="creative-card">
+        <div class="cc-header">
+          <div class="cc-title-group">
+            <span class="cc-format-badge badge-infeed">▶ TikTok In-Feed</span>
+            <div>
+              <div class="cc-name">Ad #4 — "POV: Punya Rumah Sendiri" (TikTok Native)</div>
+              <div class="cc-platform-tag">TikTok Ads · In-Feed · For You Page</div>
+            </div>
+          </div>
+          <div class="cc-goal">🎯 TOFU–MOFU · Awareness → Lead · Persona: Sari</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-col-label" style="margin-bottom:.75rem">Script TikTok (15–20 detik · Ultra-fast cuts · Native style)</div>
+          <div class="script-box">
+            <div class="script-time">⏱ 0–2 detik — HOOK (nempel di 2 detik pertama atau skip!)</div>
+            <div class="script-content"><span class="s-action">[Drone shot atas kawasan Terranova dari langit, caption masuk]</span>
+<strong style="color:var(--gold)">TEKS: "POV: Kamu akhirnya punya rumah Scandinavian di Bandung 🏠✨"</strong></div>
+            <div class="script-time">⏱ 2–8 detik — QUICK SHOWCASE (cut tiap 1.5 detik)</div>
+            <div class="script-content"><span class="s-action">[Fast cut montage: fasad → carport → teras → ruang tamu → dapur → kamar → balkon]</span>
+Setiap cut: teks overlay singkat:
+"2 Lantai" → "3 Kamar Tidur" → "Balkon" → "Granit 60×60"</div>
+            <div class="script-time">⏱ 8–15 detik — PRICE REVEAL + CTA</div>
+            <div class="script-content"><span class="s-action">[Zoom ke fasad dari jauh, musik naik]</span>
+<strong style="color:var(--gold)">Teks besar: "Angsuran mulai 4.826.551/bulan 😱"</strong>
+"Terranova Residence, Rancaekek Bandung"
+"GRATIS biaya pajak! Booking 3 Juta!"
+
+<span class="s-action">[Caption TikTok]: 🏠 Rumah impian kamu ada di sini! Link di bio atau chat langsung 👇</span>
+<strong style="color:var(--gold)">Hashtag: #TerrannovaResidence #RumahBandung #KPRMurah #RumahScandinavian #BandungProperti</strong></div>
+          </div>
+          <div class="cc-metrics">
+            <span class="cm-tag">Duration: <strong>15–20 detik</strong></span>
+            <span class="cm-tag">Style: <strong>Native TikTok (no logo di awal)</strong></span>
+            <span class="cm-tag">Music: <strong>Trending sound/original</strong></span>
+            <span class="cm-tag">Est. CPL: <strong>Rp 25–70rb</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AD 5: TikTok Spark Ads -->
+      <div class="creative-card">
+        <div class="cc-header">
+          <div class="cc-title-group">
+            <span class="cc-format-badge badge-spark">✨ TikTok Spark Ads</span>
+            <div>
+              <div class="cc-name">Ad #5 — "Day in the Life" Konten Organik di-boost</div>
+              <div class="cc-platform-tag">TikTok Spark Ads · dari akun @terranovaresidence</div>
+            </div>
+          </div>
+          <div class="cc-goal">🎯 TOFU · Social Proof · Persona: Semua</div>
+        </div>
+        <div class="cc-body">
+          <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:1.25rem">
+            <strong>Konsep:</strong> Buat konten organik dari akun TikTok resmi Terranova, lalu boost sebagai Spark Ads. 
+            Terasa lebih natural, komentar &amp; likes dari konten organik tetap muncul — meningkatkan trust.
+          </p>
+          <div class="cc-col-label" style="margin-bottom:.75rem">Ide Konten Organik untuk di-Spark:</div>
+          <div style="display:flex;flex-direction:column;gap:.6rem;font-size:.82rem">
+            <div style="background:var(--off-white);border-radius:var(--r-sm);padding:.75rem 1rem;display:flex;align-items:center;gap:.75rem">
+              <span style="font-size:1.25rem">🎬</span>
+              <div><strong style="color:var(--navy)">"Tour Rumah Terranova 68/60 — 2 Lantai Scandinavian!"</strong><br/><span style="color:var(--text-muted)">Walking tour 60 detik dari carport → semua ruangan → balkon</span></div>
+            </div>
+            <div style="background:var(--off-white);border-radius:var(--r-sm);padding:.75rem 1rem;display:flex;align-items:center;gap:.75rem">
+              <span style="font-size:1.25rem">💸</span>
+              <div><strong style="color:var(--navy)">"Hitung Bareng: Cicilan Rumah vs Biaya Kos di Bandung"</strong><br/><span style="color:var(--text-muted)">Konten edukasi — breakdown angsuran vs kos premium. Very shareable.</span></div>
+            </div>
+            <div style="background:var(--off-white);border-radius:var(--r-sm);padding:.75rem 1rem;display:flex;align-items:center;gap:.75rem">
+              <span style="font-size:1.25rem">🌅</span>
+              <div><strong style="color:var(--navy)">"Beginilah Suasana Pagi di Terranova Residence"</strong><br/><span style="color:var(--text-muted)">Lifestyle content — area cluster, RTH, lingkungan asri. FOMO inducing.</span></div>
+            </div>
+            <div style="background:var(--off-white);border-radius:var(--r-sm);padding:.75rem 1rem;display:flex;align-items:center;gap:.75rem">
+              <span style="font-size:1.25rem">🏗️</span>
+              <div><strong style="color:var(--navy)">"Spesifikasi Rumah 710 Juta — Worth It atau Nggak?"</strong><br/><span style="color:var(--text-muted)">Review material bangunan satu per satu. Konten edukatif = engagement tinggi.</span></div>
+            </div>
+          </div>
+          <div class="cc-metrics">
+            <span class="cm-tag">Post frequency: <strong>3–5x/minggu</strong></span>
+            <span class="cm-tag">Spark: <strong>2–3 video terbaik/bulan</strong></span>
+            <span class="cm-tag">Budget Spark: <strong>Rp 500rb–1jt/video</strong></span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /creative-list -->
+  </div>
+</section>
+
+<!-- ============================
+     LEAD GENERATION
+============================= -->
+<section class="prop-section bg-white" id="leads">
+  <div class="prop-inner">
+    <div class="sec-label">
+      <div class="sec-num">6</div>
+      <span class="sec-title-sm">Strategi Lead Generation &amp; Conversion Funnel</span>
+    </div>
+    <h2 class="prop-h2">Dari Klik Iklan Jadi Booking</h2>
+    <div class="gold-divider"></div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-bottom:3rem">
+      <div>
+        <h3 class="prop-h3" style="margin-bottom:1.5rem">📊 Conversion Funnel Terranova</h3>
+        <div class="lead-funnel">
+          <div class="lf-stage lf-0">
+            <span class="lf-name">👁️ Tayangan Iklan (Impressions)</span>
+            <span class="lf-val">100.000+/bln</span>
+          </div>
+          <div class="lf-arrow">↓ ~3% klik</div>
+          <div class="lf-stage lf-1">
+            <span class="lf-name">🖱️ Klik ke Landing Page</span>
+            <span class="lf-val">3.000–5.000</span>
+          </div>
+          <div class="lf-arrow">↓ ~5% isi form</div>
+          <div class="lf-stage lf-2">
+            <span class="lf-name">📋 Submit Form / Chat WA</span>
+            <span class="lf-val">150–250 leads</span>
+          </div>
+          <div class="lf-arrow">↓ 40% leads qualified</div>
+          <div class="lf-stage lf-3">
+            <span class="lf-name">✅ Leads Qualified (HOT)</span>
+            <span class="lf-val">60–100 hot leads</span>
+          </div>
+          <div class="lf-arrow">↓ 30% setuju survey</div>
+          <div class="lf-stage lf-4">
+            <span class="lf-name">📅 Survey ke Lokasi</span>
+            <span class="lf-val">18–30 orang</span>
+          </div>
+          <div class="lf-arrow">↓ 20–30% booking</div>
+          <div class="lf-stage lf-5">
+            <span class="lf-name">🏠 BOOKING UNIT!</span>
+            <span class="lf-val">3–9 unit/bln</span>
+          </div>
+        </div>
+        <p style="font-size:.75rem;color:var(--text-muted);margin-top:.75rem;text-align:center;font-style:italic">
+          *Proyeksi dengan budget iklan Rp 15 Juta/bulan (paket Growth)
+        </p>
+      </div>
+
+      <div>
+        <h3 class="prop-h3" style="margin-bottom:1.1rem">⚙️ Lead Management SOP</h3>
+        <div style="display:flex;flex-direction:column;gap:.75rem">
+          <div style="background:var(--off-white);border-radius:var(--r-md);padding:1.1rem;border-left:3px solid var(--gold)">
+            <div style="font-weight:700;font-size:.88rem;color:var(--navy);margin-bottom:.35rem">⚡ Respon Maksimal 5 Menit</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">Setiap lead masuk WAJIB direspon &lt;5 menit. Lead properti yang direspon dalam 5 menit memiliki konversi 9× lebih tinggi. Setup WA Business auto-reply.</div>
+          </div>
+          <div style="background:var(--off-white);border-radius:var(--r-md);padding:1.1rem;border-left:3px solid #1877F2">
+            <div style="font-weight:700;font-size:.88rem;color:var(--navy);margin-bottom:.35rem">📱 Lead Qualification Script</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">Tanyakan: Budget? Cash/KPR? Timeline beli? Untuk siapa? Ini membantu filter HOT vs COLD lead agar tim sales fokus ke yang berpotensi closing.</div>
+          </div>
+          <div style="background:var(--off-white);border-radius:var(--r-md);padding:1.1rem;border-left:3px solid #25D366">
+            <div style="font-weight:700;font-size:.88rem;color:var(--navy);margin-bottom:.35rem">📆 Follow-up Jadwal</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">Hari 1: Respon + kirim brosur digital. Hari 3: Follow-up jadwal survey. Hari 7: Reminder promo. Hari 14: Final offer. Gunakan CRM sederhana (Google Sheet atau Notion).</div>
+          </div>
+          <div style="background:var(--off-white);border-radius:var(--r-md);padding:1.1rem;border-left:3px solid #E53935">
+            <div style="font-weight:700;font-size:.88rem;color:var(--navy);margin-bottom:.35rem">🔁 Retargeting Cold Leads</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">Lead yang belum konversi di-retarget ulang via Meta Ads (upload list ke Custom Audience) dengan materi iklan berbeda: testimonial, urgency stok, atau promo baru.</div>
+          </div>
+          <div style="background:var(--off-white);border-radius:var(--r-md);padding:1.1rem;border-left:3px solid var(--navy)">
+            <div style="font-weight:700;font-size:.88rem;color:var(--navy);margin-bottom:.35rem">📊 Tools Rekomendasi</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">CRM: <strong>Google Sheet CRM template</strong> (gratis) atau <strong>HubSpot Free</strong>. WA Blast: <strong>WhatsApp Business API</strong>. Laporan mingguan otomatis dari Meta Ads Manager.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Target Leads Per Bulan -->
+    <h3 class="prop-h3" style="margin-bottom:1rem">🎯 Target Leads Per Bulan (Per Paket)</h3>
+    <div class="metric-grid">
+      <div class="metric-card light-card">
+        <div class="mc-val">50–100</div>
+        <div class="mc-label dark">Total leads/bulan<br /><strong>Paket Starter</strong><br/>Budget iklan Rp 5 Jt</div>
+        <div class="mc-note dark">Est. CPL: Rp 50–100rb<br/>Potensi 1–3 booking/bln</div>
+      </div>
+      <div class="metric-card light-card" style="border:2px solid var(--gold)">
+        <div class="mc-val">150–250</div>
+        <div class="mc-label dark">Total leads/bulan<br /><strong style="color:var(--gold)">Paket Growth ⭐</strong><br/>Budget iklan Rp 15 Jt</div>
+        <div class="mc-note dark">Est. CPL: Rp 60–100rb<br/>Potensi 3–9 booking/bln</div>
+      </div>
+      <div class="metric-card light-card">
+        <div class="mc-val">350–500</div>
+        <div class="mc-label dark">Total leads/bulan<br /><strong>Paket Full Scale</strong><br/>Budget iklan Rp 30 Jt</div>
+        <div class="mc-note dark">Est. CPL: Rp 60–85rb<br/>Potensi 7–15 booking/bln</div>
+      </div>
+      <div class="metric-card light-card">
+        <div class="mc-val" style="font-size:1.4rem">10–20%</div>
+        <div class="mc-label dark">Lead to Survey Rate<br />(industri properti)</div>
+        <div class="mc-note dark">Meningkat jika follow-up cepat &lt; 5 menit</div>
+      </div>
+      <div class="metric-card light-card">
+        <div class="mc-val" style="font-size:1.4rem">20–30%</div>
+        <div class="mc-label dark">Survey to Booking Rate<br />(dengan landing page bagus)</div>
+        <div class="mc-note dark">Meningkat dengan tour virtual &amp; brosur digital</div>
+      </div>
+      <div class="metric-card light-card">
+        <div class="mc-val" style="font-size:1.4rem">85–95%</div>
+        <div class="mc-label dark">Booking to Closing Rate<br />(jika KPR diapprove)</div>
+        <div class="mc-note dark">Turun jika KPR ditolak — bantu calon buyer pilih bank</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     BUDGET & ROI
+============================= -->
+<section class="prop-section bg-pattern" id="budget">
+  <div class="prop-inner">
+    <div class="sec-label">
+      <div class="sec-num">7</div>
+      <span class="sec-title-sm">Estimasi Budget &amp; Proyeksi ROI</span>
+    </div>
+    <h2 class="prop-h2 light">Rincian Biaya &amp; Return on Investment</h2>
+    <div class="gold-divider"></div>
+
+    <h3 class="prop-h3 gold" style="margin-bottom:1rem">📋 Tabel Rincian Budget — Paket Growth (Recommended)</h3>
+    <div class="budget-table-wrap" style="margin-bottom:2.5rem">
+      <table class="budget-table">
+        <thead>
+          <tr>
+            <th>Komponen</th>
+            <th>Platform</th>
+            <th>Estimasi Biaya/Bulan</th>
+            <th>Keterangan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Meta Ads — Awareness (TOFU)</td>
+            <td><span class="badge-platform bp-meta">📘 Meta</span></td>
+            <td class="highlight-cell">Rp 3.750.000</td>
+            <td>25% dari Rp 15 Jt — video views campaign</td>
+          </tr>
+          <tr>
+            <td>Meta Ads — Lead Gen (MOFU)</td>
+            <td><span class="badge-platform bp-meta">📘 Meta</span></td>
+            <td class="highlight-cell">Rp 4.500.000</td>
+            <td>30% — carousel + single image ads</td>
+          </tr>
+          <tr>
+            <td>Meta Ads — Conversion (BOFU)</td>
+            <td><span class="badge-platform bp-meta">📘 Meta</span></td>
+            <td class="highlight-cell">Rp 1.500.000</td>
+            <td>10% — retargeting, urgency ads</td>
+          </tr>
+          <tr>
+            <td>TikTok Ads — In-Feed + Spark</td>
+            <td><span class="badge-platform bp-tiktok">▶ TikTok</span></td>
+            <td class="highlight-cell">Rp 4.500.000</td>
+            <td>30% — video native + spark ads</td>
+          </tr>
+          <tr>
+            <td>TikTok Lead Gen Form</td>
+            <td><span class="badge-platform bp-tiktok">▶ TikTok</span></td>
+            <td class="highlight-cell">Rp 750.000</td>
+            <td>5% — lead form campaign</td>
+          </tr>
+          <tr class="total-row">
+            <td>TOTAL BUDGET IKLAN</td>
+            <td>Meta + TikTok</td>
+            <td>Rp 15.000.000</td>
+            <td>Dibayarkan langsung ke platform ads</td>
+          </tr>
+          <tr>
+            <td>Jasa Manajemen Iklan</td>
+            <td><span class="badge-platform bp-mgmt">⭐ Kami</span></td>
+            <td class="highlight-cell">Rp 5.000.000</td>
+            <td>Setup, optimasi, laporan, materi iklan</td>
+          </tr>
+          <tr class="total-row">
+            <td>TOTAL PENGELUARAN MARKETING</td>
+            <td>—</td>
+            <td>Rp 20.000.000/bulan</td>
+            <td>All-in: iklan + jasa management</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="prop-h3 gold" style="margin-bottom:1rem">📈 Proyeksi ROI — 3 Bulan Pertama</h3>
+    <div class="roi-table-wrap">
+      <table class="roi-table">
+        <thead>
+          <tr>
+            <th>Metrik</th>
+            <th>Bulan 1 (Testing)</th>
+            <th>Bulan 2 (Optimize)</th>
+            <th>Bulan 3 (Scale)</th>
+            <th>Total 3 Bulan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Budget Iklan</td>
+            <td>Rp 10.000.000</td>
+            <td>Rp 15.000.000</td>
+            <td>Rp 20.000.000</td>
+            <td class="highlight">Rp 45.000.000</td>
+          </tr>
+          <tr>
+            <td>Jasa Management</td>
+            <td>Rp 5.000.000</td>
+            <td>Rp 5.000.000</td>
+            <td>Rp 5.000.000</td>
+            <td class="highlight">Rp 15.000.000</td>
+          </tr>
+          <tr>
+            <td>Total Pengeluaran</td>
+            <td>Rp 15.000.000</td>
+            <td>Rp 20.000.000</td>
+            <td>Rp 25.000.000</td>
+            <td class="highlight">Rp 60.000.000</td>
+          </tr>
+          <tr>
+            <td>Estimasi Total Leads</td>
+            <td>100–150</td>
+            <td>200–300</td>
+            <td>300–450</td>
+            <td class="highlight">600–900 leads</td>
+          </tr>
+          <tr>
+            <td>Hot Leads (qualified 40%)</td>
+            <td>40–60</td>
+            <td>80–120</td>
+            <td>120–180</td>
+            <td class="highlight">240–360 HOT</td>
+          </tr>
+          <tr>
+            <td>Survey ke Lokasi (15%)</td>
+            <td>6–9 orang</td>
+            <td>12–18 orang</td>
+            <td>18–27 orang</td>
+            <td class="highlight">36–54 orang</td>
+          </tr>
+          <tr>
+            <td>Estimasi Booking (25%)</td>
+            <td>1–2 unit</td>
+            <td>3–5 unit</td>
+            <td>5–7 unit</td>
+            <td class="highlight">9–14 unit</td>
+          </tr>
+          <tr>
+            <td>Revenue Developer (Rp 710 Jt/unit)</td>
+            <td>Rp 710 Jt – 1,4 M</td>
+            <td>Rp 2,1 M – 3,55 M</td>
+            <td>Rp 3,55 M – 4,97 M</td>
+            <td class="highlight">Rp 6,39 M – 9,94 M</td>
+          </tr>
+          <tr class="total-row">
+            <td>ROI Marketing (Revenue/Budget)</td>
+            <td>47× – 93×</td>
+            <td>105× – 178×</td>
+            <td>142× – 199×</td>
+            <td>107× – 166×</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.75rem;color:rgba(255,255,255,.45);margin-top:.75rem;font-style:italic">
+      *Proyeksi konservatif berdasarkan benchmark industri properti Indonesia 2024–2026. Hasil aktual dapat lebih baik dengan optimasi berkelanjutan.
+    </p>
+  </div>
+</section>
+
+<!-- ============================
+     PACKAGES
+============================= -->
+<section class="prop-section bg-light" id="packages">
+  <div class="prop-inner">
+    <div class="sec-label">
+      <div class="sec-num">8</div>
+      <span class="sec-title-sm">Paket Layanan &amp; Harga</span>
+    </div>
+    <h2 class="prop-h2">Pilih Paket Sesuai Target Developer</h2>
+    <div class="gold-divider"></div>
+    <p class="lead-text" style="margin-bottom:2.5rem">
+      Semua paket termasuk <strong>setup campaign, pembuatan materi iklan, monitoring harian, 
+      dan laporan mingguan</strong>. Budget iklan dibayarkan terpisah langsung ke platform 
+      (Meta / TikTok) atas nama developer.
+    </p>
+
+    <div class="pkg-grid">
+
+      <!-- Starter -->
+      <div class="pkg-card">
+        <div class="pkg-icon">🌱</div>
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-tagline">Testing &amp; validasi pasar — cocok untuk awal kampanye</div>
+        <div class="pkg-price-wrap">
+          <div class="pkg-mgmt-label">Jasa Management</div>
+          <div class="pkg-mgmt-price">Rp 3 Juta <span class="pkg-mgmt-period">/bulan</span></div>
+          <div class="pkg-ad-note">+ Budget Iklan Rp 5 Jt (dibayar ke Meta/TikTok)</div>
+        </div>
+        <div class="pkg-features">
+          <div class="pkg-feat"><span class="pf-check">✓</span>Meta Ads (Facebook + Instagram)</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>3 materi iklan (gambar/video)</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>Setup campaign + pixel</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>Laporan mingguan via WhatsApp</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>1× optimasi/bulan</div>
+          <div class="pkg-feat" style="color:var(--text-muted)"><span style="color:var(--border)">✗</span>TikTok Ads</div>
+          <div class="pkg-feat" style="color:var(--text-muted)"><span style="color:var(--border)">✗</span>Landing page management</div>
+        </div>
+        <div class="pkg-target">🎯 Target: <strong>50–100 leads/bulan</strong><br/>Est. 1–2 booking/bulan</div>
+      </div>
+
+      <!-- Growth -->
+      <div class="pkg-card recommended">
+        <div class="pkg-rec-badge">⭐ Paling Direkomendasikan</div>
+        <div class="pkg-icon">🚀</div>
+        <div class="pkg-name">Growth</div>
+        <div class="pkg-tagline">Full strategi Meta + TikTok — akselerasi penjualan optimal</div>
+        <div class="pkg-price-wrap" style="background:linear-gradient(135deg,#FEF9E7,#FDF3C0);border:1px solid var(--gold)">
+          <div class="pkg-mgmt-label">Jasa Management</div>
+          <div class="pkg-mgmt-price">Rp 5 Juta <span class="pkg-mgmt-period">/bulan</span></div>
+          <div class="pkg-ad-note">+ Budget Iklan Rp 15 Jt (Meta + TikTok)</div>
+        </div>
+        <div class="pkg-features">
+          <div class="pkg-feat"><span class="pf-check">✓</span>Meta Ads + TikTok Ads</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>8 materi iklan (gambar + video)</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>Setup lengkap: pixel, CAPI, lead form</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>Laporan mingguan + dashboard live</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>2× optimasi + A/B testing/bulan</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>Landing page management &amp; update</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>Lookalike &amp; retargeting audience</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>Konsultasi strategi bulanan</div>
+        </div>
+        <div class="pkg-target">🎯 Target: <strong>150–250 leads/bulan</strong><br/>Est. 3–9 booking/bulan</div>
+      </div>
+
+      <!-- Full Scale -->
+      <div class="pkg-card">
+        <div class="pkg-icon">⚡</div>
+        <div class="pkg-name">Full Scale</div>
+        <div class="pkg-tagline">Dominasi pasar digital — target habis dalam 3–4 bulan</div>
+        <div class="pkg-price-wrap">
+          <div class="pkg-mgmt-label">Jasa Management</div>
+          <div class="pkg-mgmt-price">Rp 8 Juta <span class="pkg-mgmt-period">/bulan</span></div>
+          <div class="pkg-ad-note">+ Budget Iklan Rp 30 Jt + Komisi Rp 5 Jt/unit terjual</div>
+        </div>
+        <div class="pkg-features">
+          <div class="pkg-feat"><span class="pf-check">✓</span>Meta + TikTok + Google Display</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>Produksi video profesional</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>12+ materi iklan/bulan</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>Laporan harian + dashboard real-time</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>Optimasi setiap 3 hari</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>Setup CRM &amp; WA Business API</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>TikTok Organic + Spark content plan</div>
+          <div class="pkg-feat"><span class="pf-check">✓</span>Dedicated marketing manager</div>
+        </div>
+        <div class="pkg-target">🎯 Target: <strong>350–500 leads/bulan</strong><br/>Est. 7–15 booking/bulan</div>
+      </div>
+
+    </div>
+
+    <div style="background:var(--white);border-radius:var(--r-lg);padding:1.5rem 2rem;margin-top:2rem;box-shadow:var(--shadow-sm);border:1px solid var(--border);display:flex;align-items:flex-start;gap:1rem">
+      <span style="font-size:1.5rem;flex-shrink:0">💡</span>
+      <div>
+        <div style="font-weight:700;color:var(--navy);margin-bottom:.3rem;font-size:.92rem">Rekomendasi untuk Terranova Residence</div>
+        <div style="font-size:.82rem;color:var(--text-muted);line-height:1.7">
+          Dengan 30 unit tersedia dan target habis dalam 3–6 bulan, <strong>Paket Growth</strong> adalah pilihan paling efisien. 
+          Mulai dengan Growth di bulan 1–2 untuk membangun data &amp; audience, lalu scale ke Full Scale jika hasilnya bagus. 
+          Total investasi marketing: <strong>Rp 40 Juta (2 bulan)</strong> dengan potensi revenue <strong>Rp 4–9 Miliar</strong> 
+          — ROI yang sangat masuk akal untuk industri properti.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     ROADMAP
+============================= -->
+<section class="prop-section bg-dark" id="roadmap">
+  <div class="prop-inner">
+    <div class="sec-label">
+      <div class="sec-num">9</div>
+      <span class="sec-title-sm">Roadmap Eksekusi</span>
+    </div>
+    <h2 class="prop-h2 light">Rencana Kerja 3 Bulan Pertama</h2>
+    <div class="gold-divider"></div>
+
+    <div class="roadmap" style="margin-bottom:2.5rem">
+      <div class="rm-month m1">
+        <div class="rm-num">BULAN 1</div>
+        <div class="rm-phase">🔧 Foundation &amp; Testing</div>
+        <div class="rm-items">
+          <div class="rm-item"><span class="rm-dot"></span>Setup Meta Business Manager &amp; pixel</div>
+          <div class="rm-item"><span class="rm-dot"></span>Install TikTok Pixel + Events API</div>
+          <div class="rm-item"><span class="rm-dot"></span>Buat 3–5 materi iklan awal</div>
+          <div class="rm-item"><span class="rm-dot"></span>Launch campaign awareness (TOFU)</div>
+          <div class="rm-item"><span class="rm-dot"></span>A/B test 2 versi copy + visual</div>
+          <div class="rm-item"><span class="rm-dot"></span>Setup WA Business auto-reply</div>
+          <div class="rm-item"><span class="rm-dot"></span>Buat template follow-up lead</div>
+        </div>
+        <div class="rm-target">🎯 Target: 50–150 leads · validasi CPL</div>
+      </div>
+      <div class="rm-month m2">
+        <div class="rm-num">BULAN 2</div>
+        <div class="rm-phase">⚡ Optimize &amp; Scale</div>
+        <div class="rm-items">
+          <div class="rm-item"><span class="rm-dot"></span>Matikan ad set under-perform</div>
+          <div class="rm-item"><span class="rm-dot"></span>Scale budget ad set terbaik</div>
+          <div class="rm-item"><span class="rm-dot"></span>Buat Lookalike dari leads bulan 1</div>
+          <div class="rm-item"><span class="rm-dot"></span>Launch retargeting BOFU campaign</div>
+          <div class="rm-item"><span class="rm-dot"></span>Produksi 2–3 video baru (testimonial)</div>
+          <div class="rm-item"><span class="rm-dot"></span>Launch TikTok Spark Ads</div>
+          <div class="rm-item"><span class="rm-dot"></span>Setup CRM tracking lead status</div>
+        </div>
+        <div class="rm-target">🎯 Target: 200–350 leads · 3–6 booking</div>
+      </div>
+      <div class="rm-month m3">
+        <div class="rm-num">BULAN 3</div>
+        <div class="rm-phase">🚀 Full Scale &amp; Dominate</div>
+        <div class="rm-items">
+          <div class="rm-item"><span class="rm-dot"></span>Full budget scale — audience proven</div>
+          <div class="rm-item"><span class="rm-dot"></span>Launch urgency campaign: stok sisa</div>
+          <div class="rm-item"><span class="rm-dot"></span>Testimonial buyer pertama sebagai iklan</div>
+          <div class="rm-item"><span class="rm-dot"></span>Explore Google Search Ads (branded)</div>
+          <div class="rm-item"><span class="rm-dot"></span>Event virtual open house (live TikTok)</div>
+          <div class="rm-item"><span class="rm-dot"></span>Optimasi landing page berdasar data</div>
+          <div class="rm-item"><span class="rm-dot"></span>Review strategi untuk kuartal 2</div>
+        </div>
+        <div class="rm-target">🎯 Target: 300–500 leads · 5–10 booking</div>
+      </div>
+    </div>
+
+    <!-- KPI Dashboard -->
+    <h3 class="prop-h3 gold" style="margin-bottom:1.25rem">📊 KPI yang Akan Dilaporkan Setiap Minggu</h3>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem">
+      <div class="metric-card">
+        <div class="mc-val" style="font-size:1.4rem">CPL</div>
+        <div class="mc-label">Cost Per Lead<br/>Target: &lt;Rp 100rb</div>
+      </div>
+      <div class="metric-card">
+        <div class="mc-val" style="font-size:1.4rem">CTR</div>
+        <div class="mc-label">Click Through Rate<br/>Target: &gt;2%</div>
+      </div>
+      <div class="metric-card">
+        <div class="mc-val" style="font-size:1.4rem">ROAS</div>
+        <div class="mc-label">Return on Ad Spend<br/>Target: &gt;10×</div>
+      </div>
+      <div class="metric-card">
+        <div class="mc-val" style="font-size:1.4rem">LTV</div>
+        <div class="mc-label">Leads to Visit Rate<br/>Target: &gt;15%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     LOKASI + MAPS
+============================= -->
+<section class="prop-section compact bg-white" id="maps" aria-labelledby="maps-heading">
+  <div class="prop-inner">
+    <div class="sec-label">
+      <div class="sec-num">10</div>
+      <span class="sec-title-sm">Lokasi Terranova Residence</span>
+    </div>
+    <h2 class="prop-h2" id="maps-heading" style="margin-bottom:1.25rem">📍 Titik Lokasi Properti</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
+      <div>
+        <div style="border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:4/3;">
+          <iframe
+            src="https://maps.google.com/maps?q=Jl.+Rancakihiang+Bojongloa+Rancaekek+Kabupaten+Bandung&z=16&output=embed"
+            width="100%" height="100%" style="border:0;display:block;"
+            allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Lokasi Terranova Residence di Google Maps">
+          </iframe>
+        </div>
+        <p style="font-size:.72rem;color:var(--text-muted);margin-top:.5rem;text-align:center">
+          📌 <a href="https://maps.app.goo.gl/UYHcaFBdzT9H8XUb8" target="_blank" style="color:var(--gold)" rel="noopener">
+            Buka di Google Maps → maps.app.goo.gl/UYHcaFBdzT9H8XUb8
+          </a>
+        </p>
+      </div>
+      <div>
+        <h4 style="font-weight:700;color:var(--navy);margin-bottom:1rem">Lokasi untuk Targeting Iklan</h4>
+        <div style="font-size:.83rem;color:var(--text-muted);display:flex;flex-direction:column;gap:.65rem">
+          <div style="background:var(--off-white);border-radius:var(--r-sm);padding:.75rem 1rem">
+            <strong style="color:var(--navy)">📌 Radius Primer (0–20 km)</strong><br/>
+            Rancaekek, Cileunyi, Cicalengka, Majalaya, Rancaekek, Solokan Jeruk
+          </div>
+          <div style="background:var(--off-white);border-radius:var(--r-sm);padding:.75rem 1rem">
+            <strong style="color:var(--navy)">📍 Radius Sekunder (20–50 km)</strong><br/>
+            Bandung Kota, Cimahi, Sumedang, Garut, Tasikmalaya
+          </div>
+          <div style="background:var(--off-white);border-radius:var(--r-sm);padding:.75rem 1rem">
+            <strong style="color:var(--navy)">🗺️ Tertier (Remote Buyer)</strong><br/>
+            Jakarta, Bekasi, Depok, Bogor — diaspora Sunda / investor remote
+          </div>
+          <div style="background:#FFF8E7;border-radius:var(--r-sm);padding:.75rem 1rem;border-left:3px solid var(--gold)">
+            <strong style="color:var(--navy)">💡 Advanced: Competitor Geo-fencing</strong><br/>
+            Target orang yang pernah hadir di show unit / kantor developer kompetitor terdekat (Meta Custom Location)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     CLOSING CTA
+============================= -->
+<section class="prop-section compact bg-light" id="closing">
+  <div class="prop-inner">
+    <div class="closing-cta">
+      <h2>Siap Memulai? Mari Diskusi Lebih Lanjut</h2>
+      <p>
+        Proposal ini dirancang khusus untuk membantu <strong>PT. Gendewa Bhuwana Property</strong> 
+        memasarkan Terranova Residence secara digital — cepat, terukur, dan ROI jelas. 
+        Kami siap memulai dalam <strong>3–5 hari kerja</strong> setelah kesepakatan.
+      </p>
+      <div class="cta-action-grid">
+        <a href="https://wa.me/6285111366628?text=Halo%2C%20saya%20tertarik%20dengan%20proposal%20digital%20marketing%20Terranova%20Residence.%20Bisa%20kita%20diskusi%20lebih%20lanjut%3F"
+           class="btn-cta-dark" target="_blank" rel="noopener noreferrer">
+          💬 Diskusi via WhatsApp
+        </a>
+        <button class="btn-cta-outline" onclick="window.print()">
+          🖨️ Cetak / Simpan PDF
+        </button>
+        <a href="index.html" class="btn-cta-outline" target="_blank">
+          🌐 Lihat Landing Page
+        </a>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem;background:var(--white);border-radius:var(--r-lg);padding:1.75rem;box-shadow:var(--shadow-sm);border:1px solid var(--border)">
+      <h4 style="font-weight:700;color:var(--navy);margin-bottom:1rem;font-size:.92rem">📋 Checklist Onboarding — Dibutuhkan dari Developer:</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;font-size:.82rem">
+        <div style="display:flex;gap:.5rem;color:var(--text-muted)"><span style="color:var(--gold)">□</span>Akses Meta Business Manager (invite kami)</div>
+        <div style="display:flex;gap:.5rem;color:var(--text-muted)"><span style="color:var(--gold)">□</span>Akses TikTok Ads Manager (buat akun baru)</div>
+        <div style="display:flex;gap:.5rem;color:var(--text-muted)"><span style="color:var(--gold)">□</span>Foto properti HD (min. 15–20 foto)</div>
+        <div style="display:flex;gap:.5rem;color:var(--text-muted)"><span style="color:var(--gold)">□</span>Video profil / tour rumah (jika ada)</div>
+        <div style="display:flex;gap:.5rem;color:var(--text-muted)"><span style="color:var(--gold)">□</span>Nomor WA CS aktif 08.00–20.00 WIB</div>
+        <div style="display:flex;gap:.5rem;color:var(--text-muted)"><span style="color:var(--gold)">□</span>Budget iklan (disiapkan di kartu kredit/debit)</div>
+        <div style="display:flex;gap:.5rem;color:var(--text-muted)"><span style="color:var(--gold)">□</span>Informasi promo terbaru (harga, stok)</div>
+        <div style="display:flex;gap:.5rem;color:var(--text-muted)"><span style="color:var(--gold)">□</span>Approval materi iklan sebelum tayang</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="background:var(--navy-dark);color:rgba(255,255,255,.4);padding:1.5rem var(--pad-x);text-align:center;font-size:.72rem;line-height:1.9">
+  <p>Proposal Strategi Digital Marketing · Terranova Residence · PT. Gendewa Bhuwana Property</p>
+  <p>Disiapkan September 2026 · Bersifat rahasia dan hanya untuk pihak yang dituju · Angka merupakan estimasi berdasarkan benchmark industri</p>
+</footer>
+
+<!-- Scripts -->
+<script src="main.js" defer></script>
+<script>
+(function(){
+  // Prop nav active state
+  const pnls = document.querySelectorAll('.pnl');
+  const sections = document.querySelectorAll('[id]');
+  const navObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        pnls.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#'+e.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => navObs.observe(s));
+
+  // Smooth scroll for prop nav
+  pnls.forEach(link => {
+    link.addEventListener('click', function(e){
+      const href = this.getAttribute('href');
+      if(!href || !href.startsWith('#')) return;
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if(target) target.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+  });
+})();
+</script>
+</body>
+</html>
